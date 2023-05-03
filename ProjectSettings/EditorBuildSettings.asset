@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: d13b54137d92a51438edd7b0e4b85189
+  - enabled: 1
+    path: Assets/Scenes/Jungle_Scene.unity
+    guid: 69a20408f04ef814f80399478426714f
+  - enabled: 1
+    path: Assets/Scenes/MapSelection.unity
+    guid: 23997b6bffd97c74d88dde7e822dfdb3
+  - enabled: 1
+    path: Assets/Scenes/CityMap.unity
+    guid: 805a7401f5fd28b469e2a308b3e9523b
+  - enabled: 1
+    path: Assets/Scenes/Sandbox.unity
+    guid: ffa04f7ccfe43b44da7421817d984506
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 29728e8affac4714080e1400ef828689, type: 2}
