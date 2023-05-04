@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class PauseGame : MonoBehaviour
 {
     public GameObject Setting;
-    
+    public GameObject panel;
+
     void Start()
     {
         
@@ -22,7 +23,8 @@ public class PauseGame : MonoBehaviour
         {
             Time.timeScale = 0;
             Setting.SetActive(true);
-            
+            panel.SetActive(false);
+
         }
     }
     public void CloseSettings(InputAction.CallbackContext context)
@@ -31,7 +33,8 @@ public class PauseGame : MonoBehaviour
         {
             Time.timeScale = 1;
             Setting.SetActive(false);
-           
+            panel.SetActive(true);
+
         }
     }
 

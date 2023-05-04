@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class SettingsAppear : MonoBehaviour
 {
     public GameObject Setting;
+   
     public void Settings(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -19,6 +20,7 @@ public class SettingsAppear : MonoBehaviour
         {
 
             Setting.SetActive(false);
+
 
         }
     }
