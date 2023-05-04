@@ -37,12 +37,12 @@ public class UIController : MonoBehaviour
         if(UpdateUIForPlayer.CurrentLapTime != currentLapTime)
         {
             currentLapTime = UpdateUIForPlayer.CurrentLapTime;
-            UITextCurrentTime.text = $"TIME: {(int)currentLapTime / 60} : {(currentLapTime) % 60:00.000}";
+            UITextCurrentTime.text = $"TIME: {(int)currentLapTime / 60}:{(currentLapTime) % 60:00.000}";
         }
         if (UpdateUIForPlayer.LastLapTime != lastLapTime)
         {
             lastLapTime = UpdateUIForPlayer.LastLapTime;
-            UITexLastLapTime.text = $"LAST: {(int)lastLapTime / 60} : {(lastLapTime) % 60:00.000}";
+            UITexLastLapTime.text = $"LAST: {(int)lastLapTime / 60}:{(lastLapTime) % 60:00.000}";
         }
         if (UpdateUIForPlayer.BestLapTime != bestLapTime)
         {

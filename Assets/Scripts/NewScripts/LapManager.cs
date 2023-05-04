@@ -52,6 +52,7 @@ public class LapManager : MonoBehaviour
         checkpointsParent = GameObject.Find("Checkpoints").transform;
         checkpointCount = checkpointsParent.childCount;
         checkpointLayer = LayerMask.NameToLayer("Checkpoint");
+        
     }
 
    public void StartLap()
@@ -115,11 +116,16 @@ public class LapManager : MonoBehaviour
             foreach (GameObject players in players)
             {
                 enteredBox = true;
+                LapManager lapManager = players.GetComponent<LapManager>();
+
+                    lapManager.enteredBox = true;
+           
+
                 Debug.Log("Hit Start");
                 players.transform.position = finishLine.transform.position;
                 countdownText.gameObject.SetActive(true);
 
-                countdownTimer = countdownDuration;
+                lapManager.countdownTimer = lapManager.countdownDuration;
 
                 countdown.Play();
             }
@@ -132,6 +138,8 @@ public class LapManager : MonoBehaviour
     }
     void Update()
     {
+        players = GameObject.FindGameObjectsWithTag("Player");
+
         if (countdownText.text == "3")
         {
             countdownText.color = Color.red;
@@ -146,27 +154,28 @@ public class LapManager : MonoBehaviour
         }
         if (enteredBox)
         {
-            raceSetup.SetEnteredBoxForAllPlayers();
-            countdownTimer -= Time.deltaTime;
-            countdownText.text = countdownTimer.ToString("F0");
-            if (countdownTimer <= 0f)
+            foreach (GameObject players in players)
             {
-                foreach (GameObject players in players)
+                LapManager lapManager = players.GetComponent<LapManager>();
+                lapManager.countdownTimer -= Time.deltaTime;
+                lapManager.countdownText.text = countdownTimer.ToString("F0");
+                
+                if (countdownTimer <= 0f)
                 {
                     countdownText.text = "GO!";
                     lapStarted = true;
                     StartLap();
                     PlayCurrentSource();
                     city.Stop();
-                   
                     countdownText.gameObject.SetActive(false);
                     enteredBox = false;
                 }
 
             }
+            
         }
 
-        players = GameObject.FindGameObjectsWithTag("Player");
+        
         if (lapStarted)
         CurrentLapTime = lapTimerTimeStamp > 0 ? Time.time - lapTimerTimeStamp : 0;
         //Debug.Log(CurrentLapTime);
